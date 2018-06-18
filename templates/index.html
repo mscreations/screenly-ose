@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-
-    {% if context.player_name %}
-      <title>Screenly OSE - {{context.player_name}}</title>
-    {% else %}
-      <title>Screenly OSE</title>
-    {% endif %}
-      
+{% extends "template.html" %}
+{% block head %}  
     <link href="/static/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57" />
     <link href="/static/favicons/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
     <link href="/static/favicons/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72" />
@@ -30,11 +21,8 @@
     <meta content="/static/favicons/mstile-310x150.png" name="msapplication-wide310x150logo" />
     <meta content="/static/favicons/mstile-310x310.png" name="msapplication-square310x310logo" />
 
-    <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <link href="/static/css/datepicker.css" rel="stylesheet" />
     <link href="/static/css/timepicker.css" rel="stylesheet" />
-    <link href="/static/css/toggle-switch.css" rel="stylesheet" />
-    <link href="/static/css/screenly.css" rel="stylesheet" />
 
     <script type="text/javascript">
       var default_duration = {{context.default_duration}};
@@ -50,15 +38,11 @@
     </script>
 
     <script src="/static/js/underscore-1.4.3.min.js"></script>
-    <script src="/static/js/jquery-1.9.1.min.js"></script>
     <script src="/static/js/jquery.iframe-transport.js"></script>
 
     <script src="/static/js/backbone-0.9.10.min.js"></script> <!-- needs jquery -->
 
-    <script src="/static/js/jquery-ui-1.10.1.custom.min.js"></script>
-    <script src="/static/js/jquery.fileupload.js"></script> <!-- needs jqueryui.widget -->
 
-    <script src="/static/js/bootstrap.min.js"></script> <!-- needs jquery -->
     <script src="/static/js/bootstrap-datepicker.js"></script>
     <script src="/static/js/bootstrap-timepicker.js"></script>
 
@@ -299,44 +283,8 @@
         </div>
       </div>
     </script>
-
-  </head>
-
-  <body>
-    <div id="request-error" class="navbar navbar-fixed-top"></div>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">
-            <img src="static/img/screenly_ose_logo.png" />
-          </a>
-          <ul class="nav pull-right">
-            {% if not context.up_to_date %}
-              <li class="update-available">
-                <a href="http://www.screenlyapp.com/ose.html#upgrade">
-                  <i class="icon-circle-arrow-down icon-white"></i>
-                  Update Available
-                </a>
-              </li>
-            {% endif %}
-            <li>
-              <a href="/settings">
-                <i class="icon-cog icon-white"></i>
-                Settings
-              </a>
-            </li>
-            <li class="divider-vertical"></li>
-            <li>
-              <a href="/system_info">
-                <i class="icon-tasks icon-white"></i>
-                System Info
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+{% endblock %}
+{% block content %}
     <div class="container">
       <div class="row">
         <div class="span12">
@@ -424,17 +372,4 @@
         </div>
       </div>
     </div>
-
-    <div id="footer">
-      <div class="container">
-        <div class="copy">
-          &copy; Screenly, Inc.
-        </div>
-        <a id="screenly-logo" href="http://screenly.io/" target="_blank">
-          Screenly.io
-        </a>
-      </div>
-    </div>
-  </body>
-
-</html>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    {% if context.player_name %}
+      <title>Screenly OSE - {{context.player_name}}</title>
+    {% else %}
+      <title>Screenly OSE</title>
+    {% endif %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/css/screenly.css" rel="stylesheet" />
+    <link href="/static/css/toggle-switch.css" rel="stylesheet" />
+
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script> <!-- needs jquery -->
+    <script src="/static/js/jquery-ui-1.10.1.custom.min.js"></script>
+    <script src="/static/js/jquery.fileupload.js"></script> <!-- needs jqueryui.widget -->
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div id="request-error" class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="alert" style="display:none">
+          <button class="close" type="button">&times;</button>
+          <span class="msg"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">
+            <img src="static/img/screenly_ose_logo.png" />
+          </a>
+          <ul class="nav pull-right">
+            {% if not context.up_to_date %}
+              <li class="update-available">
+                <a href="http://www.screenlyapp.com/ose.html#upgrade">
+                  <i class="icon-circle-arrow-down icon-white"></i>
+                  Update Available
+                </a>
+              </li>
+            {% endif %}
+            <li>
+              <a href="/settings">
+                <i class="icon-cog icon-white"></i>
+                Settings
+              </a>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+              <a href="/system_info">
+                <i class="icon-tasks icon-white"></i>
+                System Info
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% block content %}
+  {% endblock %}
+  {% block footer %}
+  <div id="footer">
+    <div class="container">
+      <div class="copy">
+        &copy; Screenly, Inc.
+      </div>
+        <a id="screenly-logo" href="http://screenly.io/" target="_blank">
+        Screenly.io
+      </a>
+    </div>
+  </div>
+  {% endblock %}
+  </body>
+</html>
