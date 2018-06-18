@@ -12,7 +12,7 @@ from hurry.filesize import size
 import json
 from mimetypes import guess_type
 from os import getenv, makedirs, mkdir, path, remove, rename, statvfs
-from sh import git
+from sh import git, wc
 from subprocess import check_output
 import traceback
 import uuid
@@ -1130,6 +1130,9 @@ def system_info():
     except:
         pass
 
+    current_version = git("rev-parse", "--short", "HEAD")
+    develop = "development" if wc(git.status("--porcelain"), "-l").stdout.strip() != "0" else ""
+
     loadavg = diagnostics.get_load_avg()['15 min']
 
     display_info = diagnostics.get_monitor_status()
@@ -1155,7 +1158,9 @@ def system_info():
         free_space=free_space,
         uptime=system_uptime,
         display_info=display_info,
-        display_power=display_power
+        display_power=display_power,
+        current_version=current_version,
+        develop=develop
     )
 
 
