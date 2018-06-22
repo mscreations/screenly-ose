@@ -1025,6 +1025,11 @@ def viewIndex():
     return template('index.html', ws_addresses=ws_addresses, player_name=player_name)
 
 
+@app.route('/clock')
+def viewClock():
+    return template('clock.html')
+
+
 @app.route('/settings', methods=["GET", "POST"])
 @auth_basic
 def settings_page():

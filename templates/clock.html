@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    {% if context.player_name %}
+      <title>Screenly OSE - {{context.player_name}}</title>
+    {% else %}
+      <title>Screenly OSE</title>
+    {% endif %}
+    <link type="text/css" rel="stylesheet" href="/static/css/clock.css">
+    <script type="text/javascript">
+      var animate, date, dateoptions, timeoptions;
+
+      function init() {
+        dateoptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        timeoptions = { hour: "2-digit", minute: "2-digit" };
+        clock();
+      }
+
+      function clock() {
+        var event = new Date();
+        var time = event.toLocaleTimeString('en-US', timeoptions).split(' ');
+        if (date != event.toLocaleDateString('en-US', dateoptions)) {
+          date = event.toLocaleDateString('en-US', dateoptions);
+          $('date', date);
+        }
+        $('digits', time[0]);
+        $('ampm', time[1])
+        animate=setTimeout(clock, 1000);
+      }
+
+      function $(id, val) {
+          document.getElementById(id).innerHTML = val;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <section>
+        <span id="clock"><h1 id="digits"></h1><h2 id="ampm"></h2></span>
+      <div id="date"></div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  margin: 0
+}
+
+article, aside, footer, header, nav, section {
+  display: block
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif
+}
+
+html:not(.debug) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none
+}
+
+html:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  content: '';
+  position: absolute;
+  background-size: cover;
+  background-color: black;
+  -webkit-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("/static/img/bg-night.jpg")
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: 3%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+@media screen and (max-width: 1100px) {
+  body {
+    padding: 8% 10% 10% 10%
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+section {
+  top: 50%;
+  padding: 0;
+  z-index: 99;
+  text-align: center;
+  position: relative;
+  -ms-transform: translateY(-55%);
+  transform: translateY(-55%);
+  -webkit-transform: translateY(-55%)
+}
+
+section:after {
+  width: 100%;
+  content: ".";
+  visibility: hidden;
+  display: inline-block
+}
+
+section h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-size: 443px;
+  font-size: 26.4vw;
+  line-height: 0.9em;
+  text-align: center;
+  letter-spacing: -22px
+}
+
+#clock {
+  display: inline-block
+}
+
+#ampm {
+  margin: 0;
+  font-size: 52px;
+  font-size: 5vw;
+  font-weight: 300;
+  text-align: right
+}
+
+#date {
+  margin: 0;
+  padding-top: 2%;
+  padding-right: 15%;
+  font-size: 37px;
+  font-size: 3vw;
+  font-weight: 300;
+  text-align: right
+}
+
+@media screen and (max-width: 800px) {
+  section h1 {
+    font-size: 190px;
+    font-size: 23.4vw;
+    letter-spacing: -7px
+  }
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Montserrat Thin'), local('Montserrat-Thin'), url(/static/font/Montserrat-Thin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Montserrat Light'), local('Montserrat-Light'), url(/static/font/Montserrat-Light.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(/static/font/Montserrat-Medium.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
