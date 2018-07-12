@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+      <title>Clock</title>
+
+    <link type="text/css" rel="stylesheet" href="/static/css/clock.css">
+    <script type="text/javascript" src="/static/js/moment.js"></script>
+    <script type="text/javascript">
+      var animate;
+
+      function init() {
+        clock();
+      }
+
+      function clock() {
+        var event = moment();
+        $('digits', event.format("h:mm"))
+        $('ampm', event.format("A"))
+        $('date', event.format("dddd, MMM DD, YYYY"))
+        animate=setTimeout(clock, 1000);
+      }
+
+      function $(id, val) {
+          document.getElementById(id).innerHTML = val;
+      }
+
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <section>
+        <span id="clock"><h1 id="digits"></h1><h2 id="ampm"></h2></span>
+      <div id="date"></div>
+    </section>
+  </body>
+</html>
